@@ -46,8 +46,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Brick_Center.cs" />
+     <Compile Include="Assets\Scripts\Brick.cs" />
+     <Compile Include="Assets\Scripts\CanvasScript.cs" />
+     <Compile Include="Assets\Scripts\CollectiblesSpawner.cs" />
+     <Compile Include="Assets\Scripts\EnemyControl.cs" />
      <Compile Include="Assets\Scripts\PathCenter.cs" />
+     <Compile Include="Assets\Scripts\PlayerChildenCollision.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\Shot.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -68,12 +74,6 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Common">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
