@@ -21,11 +21,15 @@ public class CollectiblesSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		timer += Time.deltaTime;
+		if (GameController.inGame) {
 
-		if (timer >= (1 / spawnRate)) {
-			Spawn ();
-			timer = 0f;
+			timer += Time.deltaTime;
+
+			if (timer >= (1 / spawnRate)) {
+				Spawn ();
+				timer = 0f;
+			}
+
 		}
 
 	}

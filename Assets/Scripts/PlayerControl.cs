@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class PlayerControl : MonoBehaviour {
@@ -63,6 +63,7 @@ public class PlayerControl : MonoBehaviour {
 	private Brick focusedBrick = null;
 	private float maxDistanceFromCenter;
 	public int shotCost = 1;
+	public Text collectiblesText;
 
 	void Awake(){
 		rb = GetComponent<Rigidbody> ();
@@ -72,11 +73,17 @@ public class PlayerControl : MonoBehaviour {
 
 	void Update(){
 
-		Move ();
+		if (GameController.inGame) {
 
-		Sight ();
+			Move ();
 
-		Shoot ();
+			Sight ();
+
+			Shoot ();
+
+			VisualFeedback ();
+		
+		}
 
 	}
 
@@ -93,7 +100,12 @@ public class PlayerControl : MonoBehaviour {
 
 			incrementalPos = ClampPos (incrementalPos);
 
-			transform.LookAt (transform.position + incrementalPos);
+			Vector3 nextPosition = transform.position + incrementalPos;
+
+			Quaternion desiredRot = Quaternion.LookRotation (nextPosition, Vector3.up);
+
+			transform.rotation = Quaternion.RotateTowards (transform.rotation, desiredRot, 1000f);
+
 			transform.Translate (incrementalPos,Space.World);
 
 
@@ -149,7 +161,7 @@ public class PlayerControl : MonoBehaviour {
 
 	void Shoot ()
 	{
-		if (Input.GetButton (actionButton)) {
+		if (Input.GetButtonDown (actionButton)) {
 		
 			if (focusedBrick != null) {
 			
@@ -163,7 +175,17 @@ public class PlayerControl : MonoBehaviour {
 			}
 		
 		}
+	
 	}
+
+
+	void VisualFeedback ()
+	{
+		// write collectibles on screen
+		collectiblesText.text = colletiblesCount.ToString ();
+	}
+
+
 
 	void KeepAligned ()
 	{
@@ -179,7 +201,7 @@ public class PlayerControl : MonoBehaviour {
 
 	void Die(){
 	
-		Destroy (gameObject);
+		GameController.LoseGame ();
 
 	}
 

@@ -9,7 +9,11 @@ public class Shot : MonoBehaviour {
 
 	void Update () {
 	
-		transform.Translate (Vector3.forward * speed * Time.deltaTime);
+		if (GameController.inGame) {
+
+			transform.Translate (Vector3.forward * speed * Time.deltaTime);
+
+		}
 
 	}
 

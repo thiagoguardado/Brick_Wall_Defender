@@ -12,9 +12,13 @@ public class EnemyControl : MonoBehaviour {
 
 	void Update(){
 	
-		Rotate ();
+		if (GameController.inGame) {
 
-		CalculateShot ();
+			Rotate ();
+
+			CalculateShot ();
+
+		}
 
 
 	}
