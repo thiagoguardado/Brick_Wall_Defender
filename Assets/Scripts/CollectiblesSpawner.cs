@@ -12,10 +12,13 @@ public class CollectiblesSpawner : MonoBehaviour {
 	public float spawnRate;
 	private float timer;
 
+	public static CollectiblesSpawner instancia;
 
 	void Awake () {
 		spawnRadius = radiusPercentage * firstBrickPathExtent.position.magnitude;
 		timer = 0f;
+
+		instancia = this;
 	}
 	
 	// Update is called once per frame

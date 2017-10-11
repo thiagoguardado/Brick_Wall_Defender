@@ -56,19 +56,27 @@ public class PlayerControl : MonoBehaviour {
 	private Rigidbody rb;
 	public float speed;
 	public Transform nose;
-	public Transform maxRaycastDistance;
-	public Transform firstBrickPathDistance;
+	private Transform maxRaycastDistance;
+	private Transform firstBrickPathDistance;
 	[HideInInspector]
 	public int colletiblesCount = 0; 
 	private Brick focusedBrick = null;
 	private float maxDistanceFromCenter;
 	public int shotCost = 1;
 	public Text collectiblesText;
+	public GameObject playerLight;
+	private AudioSource audiosource;
+
 
 	void Awake(){
 		rb = GetComponent<Rigidbody> ();
+		audiosource = GetComponent<AudioSource> ();
 		colletiblesCount = 0;
+		playerLight.SetActive (false);
+		firstBrickPathDistance = GameController.instancia.firstPathEnd;
+		maxRaycastDistance = GameController.instancia.maxRaycast;
 		maxDistanceFromCenter = new Vector2 (firstBrickPathDistance.position.x, firstBrickPathDistance.position.z).magnitude;
+		
 	}
 
 	void Update(){
@@ -169,7 +177,12 @@ public class PlayerControl : MonoBehaviour {
 				
 					focusedBrick.Build ();
 					colletiblesCount -= shotCost;
-				
+
+					if (colletiblesCount <= 0) {
+						playerLight.SetActive (false);
+					}
+
+
 				}
 			
 			}
@@ -196,12 +209,14 @@ public class PlayerControl : MonoBehaviour {
 	void Collect(GameObject go)
 	{
 		colletiblesCount += 1;
+		playerLight.SetActive (true);
+		audiosource.Play ();
 		Destroy (go);
 	}
 
 	void Die(){
 	
-		GameController.LoseGame ();
+		GameController.instancia.LoseGame ();
 
 	}
 

@@ -12,14 +12,17 @@ public class Brick : MonoBehaviour {
 	public Material builtMaterial;
 	public Material destroyedMaterial;
 	private Renderer rend;
+	private Animator anim;
 
-
-
+	public AudioSource audiosource;
+	public AudioClip destroyclip;
+	public AudioClip buildclip;
 
 	void Awake(){
 
 		rend = GetComponent<Renderer> ();
 		health = maxHealth;
+		anim = GetComponent<Animator> ();
 	}
 
 
@@ -54,6 +57,10 @@ public class Brick : MonoBehaviour {
 		isDestroyed = true;
 		rend.enabled = false;
 		health = 0;
+
+		EZCameraShake.CameraShaker.Instance.LongShake ();
+
+		audiosource.PlayOneShot (destroyclip);
 	
 	}
 
@@ -64,6 +71,12 @@ public class Brick : MonoBehaviour {
 		rend.enabled = true;
 		rend.material = builtMaterial;
 		health = maxHealth;
+		anim.SetTrigger ("Shine");
+
+		audiosource.PlayOneShot (buildclip);
+
+//		EZCameraShake.CameraShaker.Instance.ShortShake ();
+
 	}
 
 

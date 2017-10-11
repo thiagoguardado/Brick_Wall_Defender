@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiap_multi_nac", "Assembly-CSharp.csproj", "{BA350515-1900-1DA8-7B56-77B52B3F8985}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiap_multi_nac", "Assembly-CSharp-Editor.csproj", "{05A64C80-183C-C3B6-3438-26DB38737CDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{BA350515-1900-1DA8-7B56-77B52B3F8985}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA350515-1900-1DA8-7B56-77B52B3F8985}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA350515-1900-1DA8-7B56-77B52B3F8985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A64C80-183C-C3B6-3438-26DB38737CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A64C80-183C-C3B6-3438-26DB38737CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A64C80-183C-C3B6-3438-26DB38737CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A64C80-183C-C3B6-3438-26DB38737CDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

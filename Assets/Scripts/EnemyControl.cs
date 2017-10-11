@@ -6,9 +6,29 @@ public class EnemyControl : MonoBehaviour {
 
 	public Transform nose;
 	public GameObject shot;
-	public float speed;
 	public float shotsPerSecond;
+	public float shotFreqMultiplierPerSecond;
 	private float shotTimer = 0f;
+
+	private float rotationTimer;
+	private Quaternion nextRotation;
+	private Quaternion lastRotation;
+	private float nextRotationDuration;
+
+	public AudioSource audiosource;
+
+	public static EnemyControl instancia;
+
+	void Awake(){
+
+		// raffle next position
+		RaffleRotation();
+
+		// instance
+		instancia = this;
+
+	}
+
 
 	void Update(){
 	
@@ -16,39 +36,64 @@ public class EnemyControl : MonoBehaviour {
 
 			Rotate ();
 
-			CalculateShot ();
+			CalculateShotFrequency ();
 
 		}
 
 
 	}
 
+
+
+
+	void RaffleRotation ()
+	{
+		lastRotation = transform.rotation;
+		nextRotation = Quaternion.Euler (0, Random.Range (0f, 360f), 0);
+		nextRotationDuration = 1 / shotsPerSecond;
+		rotationTimer = 0f;
+	}
+
+
+
 	void Rotate ()
 	{
-		transform.Rotate (Vector3.up, speed * Time.deltaTime);
+
+		rotationTimer += Time.deltaTime;
+
+		if (rotationTimer <= nextRotationDuration) {
+
+			transform.rotation = Quaternion.Lerp (lastRotation, nextRotation, rotationTimer / nextRotationDuration);
+
+		} else {
+		
+			Shot ();
+
+			RaffleRotation ();
+		
+		}
+			
 	}
 
-	private void KeepAligned(){
-		transform.LookAt (Vector3.zero);
-	}
 
-	void CalculateShot ()
+	void CalculateShotFrequency ()
 	{
 		shotTimer += Time.deltaTime;
 
-		if (shotTimer >= 1 / shotsPerSecond) {
+		if (shotTimer >= 1) {
 		
-			Shot ();
+			shotsPerSecond *= shotFreqMultiplierPerSecond;
+
 			shotTimer = 0f;
 		
 		}
 	}
 
+
 	private void Shot(){
 
-
-	
 		Instantiate (shot, nose.position, transform.rotation);
+		audiosource.Play ();
 	
 	}
 

@@ -25,12 +25,21 @@ public class ApplicationControl : MonoBehaviour {
 	}
 
 
-	public void StartSinglePlayer(){
-
-		SceneManager.LoadScene("main");
-
+	void Update(){
+	
+		if (Input.GetButtonDown ("Cancel")) {
+			BackToMenu ();
+		}
+	
+	
 	}
+		
 
+	public void BackToMenu(){
+	
+		SceneManager.LoadScene("menu");
+	
+	}
 		
 
 
