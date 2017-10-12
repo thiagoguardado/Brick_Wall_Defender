@@ -13,7 +13,7 @@ public class MyNetworkManager : NetworkManager {
 
 		base.OnClientConnect(conn);
 
-		GameController.AddPlayer (1);
+		GameControllerNetwork.AddPlayer (1);
 
 	}
 
@@ -24,7 +24,7 @@ public class MyNetworkManager : NetworkManager {
 
 		base.OnClientDisconnect(conn);
 
-		GameController.AddPlayer (-1);
+		GameControllerNetwork.AddPlayer (-1);
 
 	}
 

@@ -37,7 +37,7 @@ public class LanConfig : MonoBehaviour {
 		MyNetworkManager.singleton.networkAddress = ip;
 		MyNetworkManager.singleton.networkPort = int.Parse(port);
 
-		GameController.NewNetworkGame ();
+		GameControllerNetwork.NewNetworkGame ();
 
 		MyNetworkManager.singleton.StartHost ();
 
@@ -64,7 +64,7 @@ public class LanConfig : MonoBehaviour {
 		MyNetworkManager.singleton.networkAddress = ip;
 		MyNetworkManager.singleton.networkPort = int.Parse(port);
 
-		GameController.LoadNetworkgame ();
+		GameControllerNetwork.LoadNetworkgame ();
 
 		MyNetworkManager.singleton.StartClient ();
 

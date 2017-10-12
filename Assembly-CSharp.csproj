@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CollectiblesSpawnerNetwork.cs" />
      <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeByDistance.cs" />
      <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeOnKeyPress.cs" />
      <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeOnTrigger.cs" />
@@ -102,19 +103,28 @@
      <Compile Include="Assets\Scripts\ApplicationControl.cs" />
      <Compile Include="Assets\Scripts\AspecRatioSetter.cs" />
      <Compile Include="Assets\Scripts\AutoDestroy.cs" />
+     <Compile Include="Assets\Scripts\AutoDestroyNetwork.cs" />
      <Compile Include="Assets\Scripts\Brick.cs" />
+     <Compile Include="Assets\Scripts\BrickNetwork.cs" />
      <Compile Include="Assets\Scripts\CanvasScript.cs" />
      <Compile Include="Assets\Scripts\CollectiblesSpawner.cs" />
      <Compile Include="Assets\Scripts\EnemyControl.cs" />
+     <Compile Include="Assets\Scripts\EnemyControlNetwork.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\GameControllerNetwork.cs" />
      <Compile Include="Assets\Scripts\LanConfig.cs" />
      <Compile Include="Assets\Scripts\LevelTimer.cs" />
+     <Compile Include="Assets\Scripts\LevelTimerNetwork.cs" />
      <Compile Include="Assets\Scripts\MainMenuCanvas.cs" />
      <Compile Include="Assets\Scripts\MyNetworkManager.cs" />
      <Compile Include="Assets\Scripts\PathCenter.cs" />
+     <Compile Include="Assets\Scripts\PathCenterNetwork.cs" />
      <Compile Include="Assets\Scripts\PlayerChildenCollision.cs" />
+     <Compile Include="Assets\Scripts\PlayerChildenCollisionNetwork.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\PlayerControlNetwork.cs" />
      <Compile Include="Assets\Scripts\Shot.cs" />
+     <Compile Include="Assets\Scripts\ShotNetwork.cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
