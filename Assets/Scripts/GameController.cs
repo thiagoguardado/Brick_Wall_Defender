@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour {
 	public Text levelNumberText;
 	public Button nextLevelButton;
 	public Button menuButton;
+	public Text instructionsP2;
 
 	public GameObject player1;
 	public GameObject player2;
@@ -82,6 +83,7 @@ public class GameController : MonoBehaviour {
 			if (numberPlayers == 2) {
 				player1.gameObject.SetActive (true);
 				player2.gameObject.SetActive (true);
+				instructionsP2.gameObject.SetActive (true);
 			} else {
 				player1.gameObject.SetActive (true);
 				player2.gameObject.SetActive (false);
